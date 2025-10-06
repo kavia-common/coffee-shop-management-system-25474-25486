@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import AboutPage from './pages/about/AboutPage';
+import ImagesPage from './pages/ImagesPage';
 
 // PUBLIC_INTERFACE
 function Home({ theme, toggleTheme }) {
@@ -61,6 +62,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/images" element={<ImagesPage />} />
       </Routes>
     </BrowserRouter>
   );

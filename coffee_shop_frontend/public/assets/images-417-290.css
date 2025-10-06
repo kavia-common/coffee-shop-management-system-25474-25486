@@ -1,0 +1,282 @@
+:root {
+  --primary: #2563EB;
+  --text: #111827;
+  --surface: #ffffff;
+
+  /* Typography approximations for referenced styles */
+  --typo-51-size: 24px;
+  --typo-51-line: 32px;
+  --typo-51-weight: 600;
+
+  --typo-52-size: 96px;  /* Large section number "01" */
+  --typo-52-line: 121px;
+  --typo-52-weight: 700;
+
+  --typo-53-size: 40px;  /* "Images" section label */
+  --typo-53-line: 58px;
+  --typo-53-weight: 600;
+
+  --typo-54-size: 16px;  /* Studio row text */
+  --typo-54-line: 22px;
+  --typo-54-weight: 400;
+}
+
+/* Scope all styles */
+#images-417-290-root *, 
+#images-417-290-root *::before, 
+#images-417-290-root *::after {
+  box-sizing: border-box;
+}
+
+#images-417-290-root {
+  color: var(--text);
+  background: transparent;
+  isolation: isolate;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* Screen canvas using JSON dimensions (1333x990). Note: prior assets used 998 height, JSON shows 990; use JSON exact here. */
+#images-417-290-root #screen-417-290 {
+  position: relative;
+  width: 1333px;
+  height: 990px;
+  margin: 0 auto;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* Top stripe (Strip 1333x8 at top:0) */
+#images-417-290-root .stripe {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1333px;
+  height: 8px;
+  background: var(--primary);
+}
+
+/* Studio Name row (444:10) positioned at (x:1501,y:99) => within canvas offset left:112 top:100; width:1109 height:24 */
+#images-417-290-root .studio-name {
+  position: absolute;
+  left: 112px;
+  top: 100px;
+  width: 1109px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#images-417-290-root .studio-left {
+  position: relative;
+  width: 242px; /* Nam Design (96) + arrow (24) + gap + "Assets Images" (114) fits within 242 container per JSON; we place absolutely within */
+  height: 24px;
+}
+
+#images-417-290-root .studio-text {
+  position: absolute;
+  margin: 0;
+  font-size: var(--typo-54-size);
+  line-height: var(--typo-54-line);
+  font-weight: var(--typo-54-weight);
+  color: var(--text);
+}
+
+#images-417-290-root .arrow {
+  position: absolute;
+  left: 100px;
+  top: 0px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
+
+#images-417-290-root .arrow-img {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 11.995px;
+  height: 12.01px;
+  object-fit: contain;
+  display: block;
+}
+
+#images-417-290-root .handle {
+  margin: 0;
+  width: 104px;
+  height: 22px;
+  text-align: right;
+  font-size: var(--typo-54-size);
+  line-height: var(--typo-54-line);
+  font-weight: var(--typo-54-weight);
+}
+
+/* Number group (417:313) at x:2344,y:167 -> within canvas yields left: 2344-1389=955? The root frame x is 1389; thus local left = (2344-1389)=955; top=(167-0)=167. */
+#images-417-290-root .number {
+  position: absolute;
+  left: 955px;  /* 2344 - 1389 */
+  top: 167px;
+  width: 266px;
+  height: 121px; /* accommodates the big "01" */
+}
+
+#images-417-290-root .number-big {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 0;
+  width: 198px;
+  height: 121px;
+  font-size: var(--typo-52-size);
+  line-height: var(--typo-52-line);
+  font-weight: var(--typo-52-weight);
+  color: var(--text);
+}
+
+#images-417-290-root .number-label {
+  position: absolute;
+  left: 95px; /* 2439 - 2344 = 95 within group */
+  top: 32px;  /* 199 - 167 = 32 within group */
+  margin: 0;
+  width: 171px;
+  height: 58px;
+  font-size: var(--typo-53-size);
+  line-height: var(--typo-53-line);
+  font-weight: var(--typo-53-weight);
+  color: var(--text);
+}
+
+/* Title group (417:308) at x:1501,y:308; width:1109,height:54 */
+#images-417-290-root .title {
+  position: absolute;
+  left: 112px; /* 1501-1389 */
+  top: 308px;
+  width: 1109px;
+  height: 54px;
+}
+
+#images-417-290-root .title-label {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 0;
+  width: 256px;
+  height: 32px;
+  font-size: var(--typo-51-size);
+  line-height: var(--typo-51-line);
+  font-weight: var(--typo-51-weight);
+  color: var(--text);
+}
+
+/* Title line group (417:310) at y:356 within canvas; inside .title we position it absolute relative to the canvas offset. 
+   Since .title top is 308 and line top is 356, the local top for the line = 48px. Height is 6. */
+#images-417-290-root .title-line {
+  position: absolute;
+  left: 0px;
+  top: 48px; /* 356 - 308 */
+  width: 1109px;
+  height: 6px;
+}
+
+#images-417-290-root .line-left {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 344px;
+  height: 6px;
+  background: rgba(17,24,39,0.1);
+}
+
+#images-417-290-root .line-right {
+  position: absolute;
+  left: 343px; /* the right segment starts after first 344; JSON shows second stripe at x:1844 within canvas which is 343 within the 1109-wide title row (1844-1501=343) */
+  top: 0px;
+  width: 766px;
+  height: 6px;
+  background: rgba(37,99,235,0.28);
+}
+
+/* Image component set frame (417:726) at x:1501,y:434; width:960,height:480 */
+#images-417-290-root .image-grid {
+  position: absolute;
+  left: 112px; /* 1501-1389 */
+  top: 434px;
+  width: 960px;
+  height: 480px;
+}
+
+/* Each image item uses exact sizes from JSON; 
+   Row 1 top: 454 (relative to canvas) => 454 - 434 = 20px within grid.
+   Row 2 top: 694 (relative to canvas) => 694 - 434 = 260px within grid.
+   Left positions relative to grid are x - 1501.
+*/
+#images-417-290-root .img {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: 0px;
+}
+
+#images-417-290-root .img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Row 1 (top: 20px within grid) */
+#images-417-290-root .img-1 { /* 417:720 at x:1521,y:454 -> left: 20, size:200x200 */
+  left: 20px;
+  top: 20px;
+  width: 200px;
+  height: 200px;
+}
+#images-417-290-root .img-2 { /* 417:721 at x:1761,y:454 -> left: 260, size:200x200 */
+  left: 260px;
+  top: 20px;
+  width: 200px;
+  height: 200px;
+}
+#images-417-290-root .img-3 { /* 417:723 at x:2001,y:454 -> left: 500, size:200x200 */
+  left: 500px;
+  top: 20px;
+  width: 200px;
+  height: 200px;
+}
+#images-417-290-root .img-4 { /* 417:722 at x:2241,y:454 -> left: 740, size:200x200 */
+  left: 740px;
+  top: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+/* Row 2 (top: 260px within grid) */
+#images-417-290-root .img-5 { /* 417:724 at x:1521,y:694 -> left: 20, size:200x200 */
+  left: 20px;
+  top: 260px;
+  width: 200px;
+  height: 200px;
+}
+#images-417-290-root .img-6 { /* 417:725 at x:1761,y:694 -> left: 260, size:133x200 */
+  left: 260px;
+  top: 260px;
+  width: 133px;
+  height: 200px;
+}
+
+/* Accessibility and rendering consistency */
+#images-417-290-root .typo-51,
+#images-417-290-root .typo-52,
+#images-417-290-root .typo-53,
+#images-417-290-root .typo-54 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#images-417-290-root .typo-51 { font-size: var(--typo-51-size); line-height: var(--typo-51-line); font-weight: var(--typo-51-weight); }
+#images-417-290-root .typo-52 { font-size: var(--typo-52-size); line-height: var(--typo-52-line); font-weight: var(--typo-52-weight); }
+#images-417-290-root .typo-53 { font-size: var(--typo-53-size); line-height: var(--typo-53-line); font-weight: var(--typo-53-weight); }
+#images-417-290-root .typo-54 { font-size: var(--typo-54-size); line-height: var(--typo-54-line); font-weight: var(--typo-54-weight); }

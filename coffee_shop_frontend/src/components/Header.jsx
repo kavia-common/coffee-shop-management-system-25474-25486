@@ -66,6 +66,9 @@ function Header() {
           <NavLink to="/about" style={getLinkStyle}>
             About
           </NavLink>
+          <NavLink to="/images" style={getLinkStyle}>
+            Images
+          </NavLink>
         </div>
       </nav>
     </header>
