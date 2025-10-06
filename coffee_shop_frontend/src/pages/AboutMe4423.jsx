@@ -3,18 +3,24 @@ import React, { useEffect, useMemo } from 'react';
 /**
  * PUBLIC_INTERFACE
  * AboutMe4423 renders the generated About Me static screen (442:3) inside React.
- * It injects the body markup via dangerouslySetInnerHTML, loads CSS via import,
- * and dynamically injects the JS for runtime tweaks. Content is wrapped in a
- * scoped root container to limit CSS bleed.
+ * Per request, it must render without any CSS applied. We keep HTML content and
+ * optional JS behavior intact. A query param toggle (?nocss=1) is supported to
+ * control CSS loading in the future; by default, CSS is disabled.
  */
 function AboutMe4423() {
-  // Build the static markup from the HTML body content only.
-  // Adjust relative asset paths to use PUBLIC_URL where necessary so they resolve correctly
-  // when the app is deployed under a non-root path.
   const base = process.env.PUBLIC_URL || '';
+
+  // Determine CSS loading behavior from query param. Default is to NOT load CSS.
+  const shouldDisableCSS = useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    // If ?nocss=1 present, explicitly disable CSS (still the default).
+    if (params.get('nocss') === '1') return true;
+    // Default: disable CSS
+    return true;
+  }, []);
+
+  // Build the static markup from the HTML body content only.
   const content = useMemo(() => {
-    // Original HTML used ../assets/... relative references. When this JSX lives in the SPA,
-    // we'll map those to absolute PUBLIC_URL + /assets/... for reliable resolution.
     const html = `
       <main id="screen-442-3" aria-labelledby="headline-title" role="main">
         <div class="stripe" aria-hidden="true"></div>
@@ -81,27 +87,29 @@ function AboutMe4423() {
         </footer>
       </main>
     `;
-
-    // Ensure all "../assets/" are rewritten to PUBLIC_URL + "/assets/"
     return html.replaceAll('../assets/', `${base}/assets/`);
   }, [base]);
 
   useEffect(() => {
-    // Inject CSS <link> into head for this page styles
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = `${base}/assets/about-me-442-3.css`;
-    link.setAttribute('data-about-me-css', 'true');
-    document.head.appendChild(link);
+    // Explicitly avoid injecting or importing any CSS for this page.
+    // Add a small toggle mechanism to re-enable later:
+    // If shouldDisableCSS is false (future case), we could inject the CSS link.
+    if (!shouldDisableCSS) {
+      // Future enablement placeholder (kept disabled by default per requirement).
+      // const link = document.createElement('link');
+      // link.rel = 'stylesheet';
+      // link.href = `${base}/assets/about-me-442-3.css`;
+      // link.setAttribute('data-about-me-css', 'true');
+      // document.head.appendChild(link);
+    }
 
-    // Dynamically load the JS for small runtime adjustments
+    // Load the JS for runtime enhancements (allowed)
     const script = document.createElement('script');
     script.src = `${base}/assets/about-me-442-3.js`;
     script.async = true;
     script.crossOrigin = 'anonymous';
     script.setAttribute('data-about-me-js', 'true');
 
-    // When the script loads, if it exposes initAboutMeScreen, call it to ensure initialization
     script.onload = () => {
       try {
         if (typeof window.initAboutMeScreen === 'function') {
@@ -113,7 +121,6 @@ function AboutMe4423() {
       }
     };
 
-    // Surface errors when the asset fails to load (e.g., server returned HTML instead of JS)
     script.onerror = () => {
       // eslint-disable-next-line no-console
       console.error(`Failed to load About Me script from ${script.src}. Verify that the file exists under /public/assets and that the path is correct.`);
@@ -121,11 +128,11 @@ function AboutMe4423() {
 
     document.body.appendChild(script);
 
-    // Clean up on unmount
+    // Cleanup: ensure no about-me CSS remains (in case older versions injected it)
     return () => {
-      const linkEl = document.querySelector('link[data-about-me-css="true"]');
-      if (linkEl && linkEl.parentNode) {
-        linkEl.parentNode.removeChild(linkEl);
+      const oldLink = document.querySelector('link[data-about-me-css="true"]');
+      if (oldLink && oldLink.parentNode) {
+        oldLink.parentNode.removeChild(oldLink);
       }
       const scriptEl = document.querySelector('script[data-about-me-js="true"]');
       if (scriptEl && scriptEl.parentNode) {
@@ -136,7 +143,7 @@ function AboutMe4423() {
         focusStyle.parentNode.removeChild(focusStyle);
       }
     };
-  }, [base]);
+  }, [base, shouldDisableCSS]);
 
   return (
     <div id="about-me-442-3-root" dangerouslySetInnerHTML={{ __html: content }} />
