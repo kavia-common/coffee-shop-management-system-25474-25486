@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import AboutMe4423 from './pages/AboutMe4423';
+import Header from './components/Header';
 
 // PUBLIC_INTERFACE
 function Home({ theme, toggleTheme }) {
   /** This is the existing homepage content */
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <button
           className="theme-toggle"
@@ -32,9 +34,7 @@ function Home({ theme, toggleTheme }) {
         >
           Learn React
         </a>
-        <nav style={{ position: 'absolute', bottom: 20 }}>
-          <Link className="App-link" to="/about">Go to About</Link>
-        </nav>
+        {/* Removed footer nav; navigation is now handled by the shared Header with NavLink */}
       </header>
     </div>
   );
@@ -56,6 +56,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* Render header on all pages */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
         <Route path="/about" element={<AboutMe4423 />} />
