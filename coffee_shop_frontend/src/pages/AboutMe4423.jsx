@@ -3,21 +3,12 @@ import React, { useEffect, useMemo } from 'react';
 /**
  * PUBLIC_INTERFACE
  * AboutMe4423 renders the generated About Me static screen (442:3) inside React.
- * Per request, it must render without any CSS applied. We keep HTML content and
- * optional JS behavior intact. A query param toggle (?nocss=1) is supported to
- * control CSS loading in the future; by default, CSS is disabled.
+ * Load the dedicated CSS from /assets on mount and remove it on unmount to avoid global leakage.
+ * Image and script paths are resolved via PUBLIC_URL + '/assets/...'.
+ * The ?nocss flag is ignored; CSS is enabled by default.
  */
 function AboutMe4423() {
   const base = process.env.PUBLIC_URL || '';
-
-  // Determine CSS loading behavior from query param. Default is to NOT load CSS.
-  const shouldDisableCSS = useMemo(() => {
-    const params = new URLSearchParams(window.location.search);
-    // If ?nocss=1 present, explicitly disable CSS (still the default).
-    if (params.get('nocss') === '1') return true;
-    // Default: disable CSS
-    return true;
-  }, []);
 
   // Build the static markup from the HTML body content only.
   const content = useMemo(() => {
@@ -87,23 +78,19 @@ function AboutMe4423() {
         </footer>
       </main>
     `;
+    // Ensure all image paths point to PUBLIC_URL + '/assets/...'
     return html.replaceAll('../assets/', `${base}/assets/`);
   }, [base]);
 
   useEffect(() => {
-    // Explicitly avoid injecting or importing any CSS for this page.
-    // Add a small toggle mechanism to re-enable later:
-    // If shouldDisableCSS is false (future case), we could inject the CSS link.
-    if (!shouldDisableCSS) {
-      // Future enablement placeholder (kept disabled by default per requirement).
-      // const link = document.createElement('link');
-      // link.rel = 'stylesheet';
-      // link.href = `${base}/assets/about-me-442-3.css`;
-      // link.setAttribute('data-about-me-css', 'true');
-      // document.head.appendChild(link);
-    }
+    // Inject page-specific stylesheet on mount
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `${base}/assets/about-me-442-3.css`;
+    link.setAttribute('data-about-me-css', 'true');
+    document.head.appendChild(link);
 
-    // Load the JS for runtime enhancements (allowed)
+    // Load the JS for runtime enhancements (unchanged behavior)
     const script = document.createElement('script');
     script.src = `${base}/assets/about-me-442-3.js`;
     script.async = true;
@@ -128,7 +115,7 @@ function AboutMe4423() {
 
     document.body.appendChild(script);
 
-    // Cleanup: ensure no about-me CSS remains (in case older versions injected it)
+    // Cleanup: remove the CSS and script to avoid global leakage
     return () => {
       const oldLink = document.querySelector('link[data-about-me-css="true"]');
       if (oldLink && oldLink.parentNode) {
@@ -143,7 +130,7 @@ function AboutMe4423() {
         focusStyle.parentNode.removeChild(focusStyle);
       }
     };
-  }, [base, shouldDisableCSS]);
+  }, [base]);
 
   return (
     <div id="about-me-442-3-root" dangerouslySetInnerHTML={{ __html: content }} />
