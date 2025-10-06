@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import AboutMe4423 from './pages/AboutMe4423';
 import Header from './components/Header';
+import AboutPage from './pages/about/AboutPage';
 
 // PUBLIC_INTERFACE
 function Home({ theme, toggleTheme }) {
@@ -60,7 +60,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
-        <Route path="/about" element={<AboutMe4423 />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </BrowserRouter>
   );

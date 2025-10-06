@@ -1,3 +1,8 @@
+/**
+ * NOTE: Deprecated. This component used dynamic HTML/CSS/JS injection for the About page.
+ * It has been replaced by native React components in src/pages/about/AboutPage.jsx.
+ * Kept for reference and potential rollback only. Do not use for new routes.
+ */
 import React, { useEffect, useMemo } from 'react';
 
 /**

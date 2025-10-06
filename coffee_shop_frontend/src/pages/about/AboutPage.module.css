@@ -1,0 +1,317 @@
+:root {
+  --primary: #2563EB;
+  --secondary: #F59E0B;
+  --text-color: #111827;
+  --surface: #ffffff;
+}
+
+/* Screen container replicating fixed Figma canvas */
+.screen {
+  position: relative;
+  width: 1333px;
+  height: 998px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: var(--text-color);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  overflow: hidden;
+}
+
+/* top stripe */
+.stripe {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1333px;
+  height: 8px;
+  background: var(--primary);
+}
+
+/* breadcrumb / studio name */
+.breadcrumb {
+  position: absolute;
+  left: 112px;
+  top: 100px;
+  width: 1109px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breadcrumbLeft {
+  position: relative;
+  width: 206px;
+  height: 24px;
+}
+
+.typo97 {
+  position: absolute;
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.arrow {
+  position: absolute;
+  left: 100px;
+  top: 0px;
+  width: 24px;
+  height: 24px;
+}
+
+.arrowImg {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 11.995px;
+  height: 12.01px;
+  object-fit: contain;
+}
+
+.handleRight {
+  position: relative;
+  width: 104px;
+  height: 22px;
+  text-align: right;
+}
+
+/* headline + logo row */
+.headlineRow {
+  position: absolute;
+  left: 112px;
+  top: 196px;
+  width: 1109px;
+  height: 149px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.headlineText {
+  position: relative;
+  width: 710px;
+  height: 149px;
+}
+
+.h1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  width: 178px;
+  height: 60px;
+  font-size: 40px;
+  line-height: 60px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.h1Desc {
+  position: absolute;
+  left: 0;
+  top: 68px;
+  width: 710px;
+  height: 81px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.logoFigure {
+  position: relative;
+  margin-left: auto;
+  width: 84px;
+  height: 84px;
+  top: 32.5px;
+  display: block;
+}
+
+.logoImg {
+  width: 84px;
+  height: 84px;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* support section */
+.support {
+  position: absolute;
+  left: 112px;
+  top: 441px;
+  width: 710px;
+  height: 197px;
+}
+
+.supportText {
+  position: relative;
+  width: 710px;
+  height: 74px;
+}
+
+.h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 235px;
+  height: 31px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.supportDesc {
+  position: absolute;
+  left: 0;
+  top: 47px;
+  width: 710px;
+  height: 27px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* BMAC row */
+.bmacRow {
+  position: absolute;
+  left: 0px;
+  top: 118px;
+  width: 565px;
+  height: 79px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.bmacLogo {
+  position: relative;
+  width: 79px;
+  height: 79px;
+  flex: 0 0 79px;
+}
+
+.bmacLogoBg {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 79px;
+  height: 79px;
+  border-radius: 12px;
+  background: #f3f4f6;
+}
+
+.bmacLogoIcon {
+  position: absolute;
+  left: 13px;
+  top: 13px;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.bmacDetail {
+  position: relative;
+  width: 462px;
+  height: 77px;
+  flex: 0 0 462px;
+}
+
+.bmacTextRow {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 211px;
+  height: 29px;
+}
+
+.h3 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 183px;
+  height: 29px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.pointing {
+  position: absolute;
+  left: 187px;
+  top: 2.5px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: 600;
+}
+
+.bmacUrl {
+  position: absolute;
+  left: 0px;
+  top: 53px;
+  width: 462px;
+  height: 24px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.bmacUrl a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.bmacUrl a:hover {
+  text-decoration: underline;
+}
+
+/* Illustration */
+.illustration {
+  position: absolute;
+  left: 709px;
+  top: 350px;
+  width: 576px;
+  height: 576px;
+  margin: 0;
+  display: block;
+}
+
+.illustrationImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Footer credits */
+.credits {
+  position: absolute;
+  left: 112px;
+  top: 902px;
+  width: 254px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.typo98 {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+}
