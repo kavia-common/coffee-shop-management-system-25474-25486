@@ -87,14 +87,12 @@ function AboutMe4423() {
     link.rel = 'stylesheet';
     link.href = `${base}/assets/about-me-442-3.css`;
     link.setAttribute('data-about-me-css', 'true');
-    link.crossOrigin = 'anonymous';
     document.head.appendChild(link);
 
     // Load the JS for runtime enhancements
     const script = document.createElement('script');
     script.src = `${base}/assets/about-me-442-3.js`;
     script.async = true;
-    script.crossOrigin = 'anonymous';
     script.setAttribute('data-about-me-js', 'true');
 
     script.onload = () => {
@@ -108,7 +106,12 @@ function AboutMe4423() {
       }
     };
 
-    document.body.appendChild(script);
+    script.onerror = () => {
+      // eslint-disable-next-line no-console
+      console.error('Failed to load About Me script:', script.src);
+    };
+
+    document.head.appendChild(script);
 
     // Cleanup
     return () => {
