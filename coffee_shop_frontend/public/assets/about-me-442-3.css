@@ -1,0 +1,337 @@
+/* Generated for screen 442:3 About Me */
+/* CSS rules are scoped under #about-me-442-3-root to avoid leaking styles globally */
+
+#about-me-442-3-root *,
+#about-me-442-3-root *::before,
+#about-me-442-3-root *::after {
+  box-sizing: border-box;
+}
+
+#about-me-442-3-root {
+  /* provide a neutral background for the isolated section only */
+  background: transparent;
+  isolation: isolate;
+}
+
+#about-me-442-3-root :root {
+  --primary: #2563EB;
+  --secondary: #F59E0B;
+  --success: #F59E0B;
+  --error: #EF4444;
+  --background: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+
+  --typo-97-size: 16px;
+  --typo-97-line: 22px;
+  --typo-97-weight: 400;
+  --typo-100-size: 18px;
+  --typo-100-line: 27px;
+  --typo-100-weight: 400;
+  --typo-101-size: 20px;
+  --typo-101-line: 29px;
+  --typo-101-weight: 600;
+  --typo-102-size: 16px;
+  --typo-102-line: 24px;
+  --typo-102-weight: 400;
+  --typo-103-size: 40px;
+  --typo-103-line: 60px;
+  --typo-103-weight: 700;
+
+  --text-color: #111827;
+  --muted: rgba(17, 24, 39, 0.7);
+
+  --stripe: #2563EB;
+}
+
+/* Screen root frame */
+#about-me-442-3-root #screen-442-3 {
+  position: relative;
+  width: 1333px;
+  height: 998px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: var(--text-color);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* Generic helpers */
+#about-me-442-3-root .text {
+  position: absolute;
+  color: var(--text-color);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* Typography utilities based on JSON refs */
+#about-me-442-3-root .typo-97 {
+  font-size: var(--typo-97-size);
+  line-height: var(--typo-97-line);
+  font-weight: var(--typo-97-weight);
+}
+
+#about-me-442-3-root .typo-98 {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+#about-me-442-3-root .typo-99 {
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 700;
+}
+
+#about-me-442-3-root .typo-100 {
+  font-size: var(--typo-100-size);
+  line-height: var(--typo-100-line);
+  font-weight: var(--typo-100-weight);
+}
+
+#about-me-442-3-root .typo-101 {
+  font-size: var(--typo-101-size);
+  line-height: var(--typo-101-line);
+  font-weight: var(--typo-101-weight);
+}
+
+#about-me-442-3-root .typo-102 {
+  font-size: var(--typo-102-size);
+  line-height: var(--typo-102-line);
+  font-weight: var(--typo-102-weight);
+}
+
+#about-me-442-3-root .typo-103 {
+  font-size: var(--typo-103-size);
+  line-height: var(--typo-103-line);
+  font-weight: var(--typo-103-weight);
+}
+
+/* Stripe */
+#about-me-442-3-root .stripe {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1333px;
+  height: 8px;
+  background: var(--stripe);
+}
+
+/* Studio Name frame */
+#about-me-442-3-root .frame-studio-name {
+  position: absolute;
+  left: 112px;
+  top: 100px;
+  width: 1109px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#about-me-442-3-root .text-breadcrumb {
+  position: relative;
+  width: 206px;
+  height: 24px;
+  display: block;
+}
+
+#about-me-442-3-root .icon-arrow {
+  position: absolute;
+  left: 100px;
+  top: 0px;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+#about-me-442-3-root .icon-arrow img {
+  position: absolute;
+  left: 6px;
+  top: 5.996px;
+  width: 11.995px;
+  height: 12.01px;
+  object-fit: contain;
+}
+
+/* Right-aligned handle inside the 1109 width */
+#about-me-442-3-root .at-right {
+  position: absolute;
+  right: 0px;
+  top: 1px;
+  text-align: right;
+}
+
+/* Headline & Logo frame */
+#about-me-442-3-root .frame-headline-logo {
+  position: absolute;
+  left: 112px;
+  top: 196px;
+  width: 1109px;
+  height: 149px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Left text frame inside headline */
+#about-me-442-3-root .frame-headline-text {
+  position: relative;
+  width: 710px;
+  height: 149px;
+}
+
+#about-me-442-3-root .logo-rectangle {
+  position: relative;
+  margin-left: auto;
+  width: 84px;
+  height: 84px;
+  top: 32.5px;
+  display: block;
+  margin-right: 0;
+}
+
+#about-me-442-3-root .logo-rectangle img {
+  width: 84px;
+  height: 84px;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Support Us frame */
+#about-me-442-3-root .frame-support-us {
+  position: absolute;
+  left: 112px;
+  top: 441px;
+  width: 710px;
+  height: 197px;
+  display: block;
+}
+
+#about-me-442-3-root .frame-support-text {
+  position: relative;
+  width: 710px;
+  height: 74px;
+}
+
+/* Buy Me A Coffee row */
+#about-me-442-3-root .frame-support-bmac {
+  position: absolute;
+  left: 0px;
+  top: 118px;
+  width: 565px;
+  height: 79px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+/* Logo group 79x79 */
+#about-me-442-3-root .bmac-logo {
+  position: relative;
+  width: 79px;
+  height: 79px;
+  flex: 0 0 79px;
+}
+
+#about-me-442-3-root .bmac-logo-bg {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 79px;
+  height: 79px;
+  border-radius: 12px;
+  background: #f3f4f6;
+}
+
+#about-me-442-3-root .bmac-logo-icon {
+  position: absolute;
+  left: 13px;
+  top: 13px;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+/* Detail frame */
+#about-me-442-3-root .bmac-detail {
+  position: relative;
+  width: 462px;
+  height: 77px;
+  flex: 0 0 462px;
+}
+
+/* Text row inside detail */
+#about-me-442-3-root .bmac-text-row {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 211px;
+  height: 29px;
+}
+
+#about-me-442-3-root .bmac-text-row .text {
+  position: absolute;
+}
+
+#about-me-442-3-root .bmac-detail .typo-102 a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+#about-me-442-3-root .bmac-detail .typo-102 a:hover {
+  text-decoration: underline;
+}
+
+/* URL line inside detail */
+#about-me-442-3-root .bmac-detail .typo-102 {
+  position: absolute;
+  left: 0px;
+  top: 53px;
+  width: 462px;
+  height: 24px;
+  margin: 0;
+}
+
+/* Image frame */
+#about-me-442-3-root .frame-image {
+  position: absolute;
+  left: 709px;
+  top: 350px;
+  width: 576px;
+  height: 576px;
+  margin: 0;
+  display: block;
+}
+
+#about-me-442-3-root .frame-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Created by */
+#about-me-442-3-root .frame-created-by {
+  position: absolute;
+  left: 112px;
+  top: 902px;
+  width: 254px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Accessibility improvements */
+#about-me-442-3-root .frame-created-by .typo-98 {
+  line-height: 24px;
+}
+
+/* Ensure text rendering consistency */
+#about-me-442-3-root .text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

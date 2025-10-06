@@ -88,29 +88,47 @@ function AboutMe4423() {
     link.rel = 'stylesheet';
     link.href = `${base}/assets/about-me-442-3.css`;
     link.setAttribute('data-about-me-css', 'true');
+    link.crossOrigin = 'anonymous';
+    link.onload = () => {
+      // eslint-disable-next-line no-console
+      console.info('About Me CSS loaded:', link.href);
+    };
+    link.onerror = () => {
+      // eslint-disable-next-line no-console
+      console.error(`Failed to load About Me CSS from ${link.href}. Ensure the file exists in public/assets and the path is correct.`);
+      // Remove the bad link tag so it doesn't block subsequent loads
+      if (link.parentNode) link.parentNode.removeChild(link);
+    };
     document.head.appendChild(link);
 
-    // Load the JS for runtime enhancements (unchanged behavior)
+    // Load the JS for runtime enhancements
     const script = document.createElement('script');
     script.src = `${base}/assets/about-me-442-3.js`;
     script.async = true;
     script.crossOrigin = 'anonymous';
     script.setAttribute('data-about-me-js', 'true');
 
+    // If the server responds with HTML (index.html), the browser fires onerror.
+    script.onerror = () => {
+      // eslint-disable-next-line no-console
+      console.error(`Failed to load About Me script from ${script.src}. Verify that the file exists under /public/assets and that the path is correct. The request may have returned HTML instead of JS.`);
+      // Make sure we don't keep a broken tag around
+      if (script.parentNode) script.parentNode.removeChild(script);
+    };
+
     script.onload = () => {
       try {
+        // If the script double-binds or relies on full page DOM, wrap safely.
         if (typeof window.initAboutMeScreen === 'function') {
           window.initAboutMeScreen();
+        } else {
+          // eslint-disable-next-line no-console
+          console.warn('initAboutMeScreen() not found on window; JS file may have changed or is unnecessary.');
         }
       } catch (e) {
         // eslint-disable-next-line no-console
         console.error('About Me JS initialization error:', e);
       }
-    };
-
-    script.onerror = () => {
-      // eslint-disable-next-line no-console
-      console.error(`Failed to load About Me script from ${script.src}. Verify that the file exists under /public/assets and that the path is correct.`);
     };
 
     document.body.appendChild(script);
