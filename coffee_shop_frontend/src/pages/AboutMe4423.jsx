@@ -98,7 +98,27 @@ function AboutMe4423() {
     const script = document.createElement('script');
     script.src = `${base}/assets/about-me-442-3.js`;
     script.async = true;
+    script.crossOrigin = 'anonymous';
     script.setAttribute('data-about-me-js', 'true');
+
+    // When the script loads, if it exposes initAboutMeScreen, call it to ensure initialization
+    script.onload = () => {
+      try {
+        if (typeof window.initAboutMeScreen === 'function') {
+          window.initAboutMeScreen();
+        }
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error('About Me JS initialization error:', e);
+      }
+    };
+
+    // Surface errors when the asset fails to load (e.g., server returned HTML instead of JS)
+    script.onerror = () => {
+      // eslint-disable-next-line no-console
+      console.error(`Failed to load About Me script from ${script.src}. Verify that the file exists under /public/assets and that the path is correct.`);
+    };
+
     document.body.appendChild(script);
 
     // Clean up on unmount
